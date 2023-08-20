@@ -22,43 +22,43 @@ For baseline models, deep graph library with PyTorch backend was used.
 # %load_ext autoreload
 # %autoreload 2
 
-from google.colab import drive
-drive.mount('/content/drive')
+# from google.colab import drive
+# drive.mount('/content/drive')
 
 # fast dgl installation
 # !pip install  dgl -f https://data.dgl.ai/wheels/cu102/repo.html
 # !pip install  dglgo -f https://data.dgl.ai/wheels-test/repo.html
 
-"""system packages for building the shared library"""
+# """system packages for building the shared library"""
 
-!git clone --recurse-submodules https://github.com/dmlc/dgl.git
+# !git clone --recurse-submodules https://github.com/dmlc/dgl.git
 
-!sudo apt-get update
-!sudo apt-get install -y build-essential python3-dev make cmake
+# !sudo apt-get update
+# !sudo apt-get install -y build-essential python3-dev make cmake
 
-"""- create build folder in dgl"""
+# """- create build folder in dgl"""
 
 # Commented out IPython magic to ensure Python compatibility.
 # we are in /content
 # %cd /content/dgl/build
-!pwd
-!cmake -DUSE_CUDA=ON ..
-!make -j4
+# !pwd
+# !cmake -DUSE_CUDA=ON ..
+# !make -j4
 
 # Commented out IPython magic to ensure Python compatibility.
 # %cd /content/dgl/python
-!python setup.py install
+# !python setup.py install
 
-!pip install mxnet-cu102 #112
+# !pip install mxnet-cu102 #112
 
-!pip install osmnx
+# !pip install osmnx
 
-!git clone https://github.com/juhyeonkim95/GCN2020FinalProject.git
+# !git clone https://github.com/juhyeonkim95/GCN2020FinalProject.git
 
 import os
-os.sys.path.append('/content/GCN2020FinalProject/custom')
-os.sys.path.append('/content/GCN2020FinalProject')
-os.sys.path.append('/content/drive/MyDrive/Colab Notebooks')
+os.sys.path.append('/workspace/RFNEmission/custom')
+os.sys.path.append('/workspace/RNFEmission')
+# os.sys.path.append('./content/drive/MyDrive/Colab Notebooks')
 
 print(os.getcwd())
 
@@ -71,15 +71,15 @@ from rfn.relational_fusion.normalizers import NoNormalization, L2Normalization
 from mxnet.gluon.nn import ELU
 
 # CUDA 10.2
-!pip install torch==1.12.1+cu102 torchvision==0.13.1+cu102 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu102
+# !pip install torch==1.12.1+cu102 torchvision==0.13.1+cu102 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu102
 
 import torch
 print(torch.__version__) #2.0.1+cu118
 
 # %cd
-import GCN2020FinalProject
-from GCN2020FinalProject import custom
-from GCN2020FinalProject.custom import utils
+import RFNEmission
+from RFNEmission import custom
+from RFNEmission.custom import utils
 # import GCN2020FinalProject
 
 """### Train
