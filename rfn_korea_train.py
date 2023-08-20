@@ -57,7 +57,7 @@ For baseline models, deep graph library with PyTorch backend was used.
 
 import os
 os.sys.path.append('/workspace/RFNEmission/custom')
-os.sys.path.append('/workspace/RNFEmission')
+os.sys.path.append('/workspace/RFNEmission')
 # os.sys.path.append('./content/drive/MyDrive/Colab Notebooks')
 
 print(os.getcwd())
