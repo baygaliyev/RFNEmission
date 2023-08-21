@@ -14,7 +14,7 @@ import torch
 
 
 def latlng2dist(v1, v2):
-    R = 6373.0f
+    R = 6373.0
     lat1, lon1 = v1
     lat2, lon2 = v2
     lat1 = radians(lat1)
