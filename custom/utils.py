@@ -14,7 +14,7 @@ import torch
 
 
 def latlng2dist(v1, v2):
-    R = 6373.0
+    R = 6373.0f
     lat1, lon1 = v1
     lat2, lon2 = v2
     lat1 = radians(lat1)
@@ -125,11 +125,13 @@ def add_between_edge_attrib(D, N=4):
         
         print("edge 1 ", D.nodes[edge1])
         print("edge 2 ", D.nodes[edge2])
-        
-        b1 = D.nodes[edge1]["bearing"]
-        b2 = D.nodes[edge2]["bearing"]
-        
-        theta = b2 - b1
+        try:
+            b1 = D.nodes[edge1]["bearing"]
+            b2 = D.nodes[edge2]["bearing"]
+            
+            theta = b2 - b1
+        except KeyError:
+            theta = 0
         if np.isnan(b1):
             theta = 0
         elif np.isnan(b2):
