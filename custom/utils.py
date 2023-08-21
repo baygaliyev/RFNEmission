@@ -122,6 +122,9 @@ def add_between_edge_attrib(D, N=4):
     index = 0
     for between_edge in D.edges(data=True):
         edge1, edge2, info = between_edge
+        print("between edge ", between_edge) 
+        print("edge 1 ", edge1)
+        print("edge 2 ", edge2)
         b1 = D.nodes[edge1]["bearing"]
         b2 = D.nodes[edge2]["bearing"]
         theta = b2 - b1
