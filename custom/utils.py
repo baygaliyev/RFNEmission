@@ -123,8 +123,8 @@ def add_between_edge_attrib(D, N=4):
     for between_edge in D.edges(data=True):
         edge1, edge2, info = between_edge
         
-        print("edge 1 ", D.nodes[edge1])
-        print("edge 2 ", D.nodes[edge2])
+        # print("edge 1 ", D.nodes[edge1])
+        # print("edge 2 ", D.nodes[edge2])
         try:
             b1 = D.nodes[edge1]["bearing"]
             b2 = D.nodes[edge2]["bearing"]
